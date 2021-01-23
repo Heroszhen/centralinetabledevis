@@ -86,7 +86,7 @@ export class TableComponent implements OnInit {
     this.userindex_modify = null;
   }
   insertOneUser(e:any):void{
-    this.stopPropagation(e);
+    this.stopPropagation(e);console.log(this.userindex)
     if(this.userindex != null){
       let ob = {
         email:"",
@@ -99,7 +99,8 @@ export class TableComponent implements OnInit {
         this.users.unshift(ob);
         this.userindex_modify = 0;
       }else{
-        this.users.splice( this.userindex_modify, 0, ob );
+        this.users.splice( this.userindex, 0, ob );
+        this.userindex_modify = this.userindex;
       }
     }
   }
